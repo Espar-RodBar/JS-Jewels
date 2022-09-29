@@ -1,6 +1,6 @@
 # JS-Jewels
 
-URL [https://espar-rodbar.es/JS-Jewels/] (https://espar-rodbar.es/JS-Jewels/)
+URL https://espar-rodbar.es/JS-Jewels/
 
 A game like Candy Crush made with Vanilla Javascript.
 
