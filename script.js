@@ -123,6 +123,7 @@ function dragDrop(e) {
 // Checking three matches and return coincidences
 function checkRowThree() {
   let coincidences = 0;
+
   for (let index = 0; index < jewelsAr.length - 2; index++) {
     if (
       isSameColorMulti(
@@ -240,6 +241,8 @@ function isValidColorRows(jewels, jewelId) {
   const startRowId = Math.floor(id / COLS) * COLS;
   const finishRowId = startRowId + COLS - 1;
 
+  console.log(startRowId, finishRowId, id);
+
   if (
     startRowId <= id &&
     id + 2 <= finishRowId &&
@@ -269,7 +272,11 @@ function isValidColorRows(jewels, jewelId) {
 function isValidColorCols(jewels, jewelId) {
   const id = parseInt(jewelId);
   const startColId = id % COLS;
-  const finishColId = MAX_JEWELS - 1 - (COLS - startColId);
+  const finishColId = MAX_JEWELS - (COLS - startColId);
+
+  console.log(
+    `isValidfn id: ${id} startCol ${startColId}  enfCol ${finishColId}`
+  );
 
   if (
     startColId <= id &&
@@ -296,6 +303,7 @@ function isValidColorCols(jewels, jewelId) {
 }
 
 function isSameColorMulti(...args) {
+  const jewels = args;
   const selectedColor = args[0].style.backgroundColor;
   const isSameColor = args.every((arg) => {
     return arg.style.backgroundColor === selectedColor;
