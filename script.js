@@ -163,7 +163,7 @@ function checkColumnThree() {
 
 function checkRowFour() {
   let coincidences = 0;
-  for (let index = 0; index < jewelsAr.length - 2; index++) {
+  for (let index = 0; index < jewelsAr.length - 3; index++) {
     if (
       isSameColorMulti(
         jewelsAr[index],
@@ -187,7 +187,7 @@ function checkRowFour() {
 
 function checkColumnFour() {
   let coincidences = 0;
-  for (let index = 0; index < jewelsAr.length - COLS * 2; index++) {
+  for (let index = 0; index < jewelsAr.length - COLS * 3; index++) {
     if (
       isSameColorMulti(
         jewelsAr[index],
