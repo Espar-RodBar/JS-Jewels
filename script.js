@@ -9,6 +9,7 @@ const MAX_JEWELS = 150;
 const COLS = 10;
 const blankCol = "";
 let isStarted = false;
+const jeweledSound = new Audio("./assets/pling.mp3");
 
 function createJewelEl(id) {
   const element = document.createElement("div");
@@ -134,6 +135,7 @@ function checkRowThree() {
     ) {
       setColorBlank(jewelsAr[index], jewelsAr[index + 1], jewelsAr[index + 2]);
       coincidences += 1;
+      jeweledSound.play();
     }
   }
   return coincidences;
@@ -155,6 +157,7 @@ function checkColumnThree() {
         jewelsAr[index + 2 * COLS]
       );
       coincidences += 1;
+      jeweledSound.play();
     }
   }
   return coincidences;
@@ -181,6 +184,7 @@ function checkRowFour() {
         jewelsAr[index + 3]
       );
       coincidences += 2;
+      jeweledSound.play();
     }
   }
   return coincidences;
@@ -204,6 +208,7 @@ function checkColumnFour() {
         jewelsAr[index + 3 * COLS]
       );
       coincidences += 2;
+      jeweledSound.play();
     }
   }
   return coincidences;
@@ -303,7 +308,6 @@ function isValidColorCols(jewels, jewelId) {
 }
 
 function isSameColorMulti(...args) {
-  const jewels = args;
   const selectedColor = args[0].style.backgroundColor;
   const isSameColor = args.every((arg) => {
     return arg.style.backgroundColor === selectedColor;

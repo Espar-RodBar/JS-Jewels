@@ -8,11 +8,10 @@ This project was built after seeing the walkthrough made by Ania Kubov.
 
 Some parts are made with a little different aproach.
 
-
 Watch Ania's full video walkthrough!! [here](https://youtu.be/XD5sZWxwJUk)
 
-
 In this project we use:
+
 - the drag and drop events
 - addEventListener
 - setInterval
@@ -27,5 +26,6 @@ In this project we use:
 - Math.random
 - Math.floor
 - rest arguments in functions
+- Audio
 
-And some DOM manipulation. 
+And some DOM manipulation.
