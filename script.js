@@ -18,6 +18,8 @@ function createJewelEl(id) {
   element.style.backgroundColor = randomColor(colors);
   element.draggable = "true;";
 
+  element.textContent = id;
+
   return element;
 }
 
@@ -60,14 +62,45 @@ document.querySelector(".btn-start").addEventListener("click", () => {
 });
 
 jewelsAr.forEach((jewel) => {
+  // Desktop events
   jewel.addEventListener("dragstart", dragStart);
   jewel.addEventListener("dragenter", dragEnter);
   jewel.addEventListener("dragover", dragOver);
   jewel.addEventListener("dragleave", dragLeave);
   jewel.addEventListener("dragend", dragEnd);
   jewel.addEventListener("drop", dragDrop);
+
+  // Touch events
+  jewel.addEventListener("touchstart", touchStart);
+  // jewel.addEventListener("touchmove", touchMove);
+  jewel.addEventListener("touchend", touchEnd);
 });
 
+// Touch screen events!
+function touchStart(e) {
+  originColorDragged = e.target.style.backgroundColor;
+  originId = parseInt(e.target.id);
+  console.log("touch start", e.target.id, e.touches[0]);
+}
+function touchEnd(e) {
+  const x = e.changedTouches[0].clientX;
+  const y = e.changedTouches[0].clientY;
+  const el = document.elementFromPoint(x, y);
+  destinationId = el.id;
+  destinationColorDragged = el.style.backgroundColor;
+
+  //  Drop event simulation.");
+  // change colors
+  if (destinationId && destinationColorDragged) {
+    jewelsAr[originId].style.backgroundColor = destinationColorDragged;
+    jewelsAr[destinationId].style.backgroundColor = originColorDragged;
+  }
+
+  // DragEnd event simulation
+  dragEnd();
+}
+
+// Desktop events
 function dragStart(e) {
   originColorDragged = e.target.style.backgroundColor;
   originId = parseInt(e.target.id);
@@ -135,7 +168,7 @@ function checkRowThree() {
     ) {
       setColorBlank(jewelsAr[index], jewelsAr[index + 1], jewelsAr[index + 2]);
       coincidences += 1;
-      jeweledSound.play();
+      if (isStarted) jeweledSound.play();
     }
   }
   return coincidences;
@@ -157,7 +190,7 @@ function checkColumnThree() {
         jewelsAr[index + 2 * COLS]
       );
       coincidences += 1;
-      jeweledSound.play();
+      if (isStarted) jeweledSound.play();
     }
   }
   return coincidences;
@@ -184,7 +217,7 @@ function checkRowFour() {
         jewelsAr[index + 3]
       );
       coincidences += 2;
-      jeweledSound.play();
+      if (isStarted) jeweledSound.play();
     }
   }
   return coincidences;
@@ -208,7 +241,7 @@ function checkColumnFour() {
         jewelsAr[index + 3 * COLS]
       );
       coincidences += 2;
-      jeweledSound.play();
+      if (isStarted) jeweledSound.play();
     }
   }
   return coincidences;

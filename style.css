@@ -9,6 +9,7 @@ html {
     rgb(251, 155, 243),
     rgb(255, 201, 147)
   );
+  font-size: 62.5%;
 }
 
 .disabled {
@@ -16,7 +17,7 @@ html {
 }
 
 header {
-  margin-top: 20px;
+  margin-top: 2rem;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -25,15 +26,15 @@ header {
 .description {
   width: 20rem;
   display: flex;
-  margin: 2rem auto;
-  gap: 10px;
+  margin: 1.5rem auto;
+  gap: 1rem;
 }
 .btn-start {
   background-color: rgb(185, 130, 109);
   padding: 0.3rem 0.8rem;
   font-size: 1.6rem;
-  border-radius: 15px;
-  box-shadow: 0 0 20px 2px rgba(0, 0, 0, 0.356);
+  border-radius: 1.5rem;
+  box-shadow: 0 0 2rem 2px rgba(0, 0, 0, 0.356);
 
   transition: all 0.5s;
 }
@@ -50,13 +51,13 @@ header {
 }
 
 .game-grid {
-  margin: 2rem auto;
+  margin: 1.5rem auto;
   display: flex;
   flex-wrap: wrap;
 
   background-color: rgba(245, 245, 220, 0.1);
-  width: 400px;
-  height: 600px;
+  width: 40rem;
+  height: 60rem;
 
   box-shadow: 0 0 1px 1px rgb(37, 35, 41);
 }
@@ -70,6 +71,6 @@ header {
   box-shadow: inset 2px -2px 10px 20px rgba(250, 250, 250, 0.152);
 
   border-radius: 20%;
-  width: 40px;
-  height: 40px;
+  width: 4rem;
+  height: 4rem;
 }

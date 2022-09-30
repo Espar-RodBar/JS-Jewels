@@ -29,3 +29,10 @@ In this project we use:
 - Audio
 
 And some DOM manipulation.
+
+Added functionality for touch screen:
+
+- touchstart event
+- touchend event
+- changedTouches for getting position
+- elementFrontPoint()
