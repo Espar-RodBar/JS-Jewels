@@ -18,7 +18,7 @@ function createJewelEl(id) {
   element.style.backgroundColor = randomColor(colors);
   element.draggable = "true;";
 
-  element.textContent = id;
+  // element.textContent = id;
 
   return element;
 }
